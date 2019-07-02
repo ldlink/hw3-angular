@@ -1,0 +1,12 @@
+.activity-row{
+  background-color: #ececee;
+  padding: 10px;
+  border-radius: 2px;
+}
+.activity-row:hover{
+  background-color: #ffeada;
+}
+.element-bg-img{
+  height: 190px;
+  overflow: hidden;
+}

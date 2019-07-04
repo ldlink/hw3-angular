@@ -3,6 +3,7 @@
   <app-element-left
           [hotels]="hotels$ | async"
           [(activeHotel)]="activeHotel"
+          [types]="types$ | async"
           class="element-left"></app-element-left>
   <div class="element-right">
     <app-element-temperature [activeWeather]="activeHotel?.weather"></app-element-temperature>

@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { hotels$, IHotel } from './mock';
+import { Component } from '@angular/core';
+import { hotels$, IHotel, types$ } from './mock';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   public title = 'Hot Weather Widget';
-  public hotels$: Observable<IHotel[]> = hotels$;
+  public hotels$: Observable<IHotel[]>;
+  public types$: Observable<string[]> = types$;
   public activeHotel: IHotel;
 
-  public ngOnInit(): void {
-    // const active = this.hotels$.
-    //   .map(hotels => this.activeHotel = hotels[0])
+  constructor() {
+    this.hotels$ = hotels$.pipe(
+      tap(hotels => this.activeHotel = hotels[0])
+    );
   }
+
 }

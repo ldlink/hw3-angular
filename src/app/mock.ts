@@ -1,4 +1,5 @@
 import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export interface IWeather {
   title: string,
@@ -20,7 +21,7 @@ export interface IHotel {
   img_s: string,
   name: string,
   address: string,
-  phone:  number
+  rate:  number
   weather: IWeather,
   social_info: ISocial,
   type: string
@@ -28,68 +29,155 @@ export interface IHotel {
 
 export const hotels: IHotel[] = [
   {
-    img: 'assets/images/1.jpg',
-    img_s: 'assets/images/r1.jpg',
-    address: 'string',
-    phone:  79991112233,
-    name: 'noname',
-    weather: {
-      title: 'string',
-      icon: 'assets/images/cloudy.png',
-      water: 10,
-      temperature: 12
-    },
-    social_info:{
-      title: 'string',
-      img: 'assets/images/b1.jpg',
-      img_s: 'assets/images/rb1.jpg',
-      followers: 10,
-      following: 99
-    },
-    type: 'string'
-  },
-  {
     img: 'assets/images/2.jpg',
     img_s: 'assets/images/r2.jpg',
     name: 'Banyan Tree Kuala Lumpur',
     address: 'Kuala Lumpur, Malaysia ',
-    phone:  6030000000,
+    rate:  5,
     weather: {
-      title: 'string2',
-      icon: 'assets/images/cloudy.png',
-      water: 6,
-      temperature: 6
+      title: 'Mostly Cloudy',
+      icon: 'assets/images/MostlyCloudy.png',
+      water: 26,
+      temperature: 28
     },
     social_info:{
-      title: 'string2',
+      title: 'Will return! Great',
       img: 'assets/images/b2.jpg',
       img_s: 'assets/images/rb2.jpg',
-      followers: 1,
-      following: 2
+      followers: 754,
+      following: 2155
     },
-    type: 'string2'
+    type: 'Malaysia'
   },
   {
     img: 'assets/images/3.jpg',
     img_s: 'assets/images/r3.jpg',
     name: 'Spa, Phuket',
     address: 'Phuket Town, Thailand',
-    phone:  70000000,
+    rate:  4,
     weather: {
-      title: 'string2',
-      icon: 'assets/images/cloudy.png',
-      water: 6,
-      temperature: 6
+      title: 'Thunderstorm',
+      icon: 'assets/images/Thunderstorm.png',
+      water: 30,
+      temperature: 40
     },
     social_info:{
-      title: 'string2',
+      title: 'Perfect staycation',
       img: 'assets/images/b3.jpg',
       img_s: 'assets/images/rb3.jpg',
-      followers: 1,
-      following: 2
+      followers: 145,
+      following: 24
     },
-    type: 'string2'
+    type: 'Thailand'
+  },
+  {
+    img: 'assets/images/4.jpg',
+    img_s: 'assets/images/r4.jpg',
+    name: 'Suite Penang',
+    address: 'Bayan Lepas, Malaysia',
+    rate:  2,
+    weather: {
+      title: 'Showers',
+      icon: 'assets/images/Showers.png',
+      water: 26,
+      temperature: 28
+    },
+    social_info:{
+      title: 'Very good',
+      img: 'assets/images/b4.jpg',
+      img_s: 'assets/images/rb4.jpg',
+      followers: 11,
+      following: 452
+    },
+    type: 'Malaysia'
+  },
+  {
+    img: 'assets/images/5.jpg',
+    img_s: 'assets/images/r5.jpg',
+    name: 'Tower Club At lebua',
+    address: 'Bangkok, Thailand',
+    rate:  null,
+    weather: {
+      title: 'Mostly Cloudy',
+      icon: 'assets/images/MostlyCloudy.png',
+      water: 28,
+      temperature: 38
+    },
+    social_info:{
+      title: 'One of our top picks in Bangkok',
+      img: 'assets/images/b5.jpg',
+      img_s: 'assets/images/rb5.jpg',
+      followers: 11,
+      following: 452
+    },
+    type: 'Thailand'
+  }
+  ,
+  {
+    img: 'assets/images/6.jpg',
+    img_s: 'assets/images/r6.jpg',
+    name: 'Zhangjiajie Baihui Living Inn',
+    address: 'Zhangjiajie, China',
+    rate:  5,
+    weather: {
+      title: 'Mostly Cloudy',
+      icon: 'assets/images/MostlyCloudy.png',
+      water: 25,
+      temperature: 20
+    },
+    social_info:{
+      title: 'Original, stylish and memorable place',
+      img: 'assets/images/b6.jpg',
+      img_s: 'assets/images/rb6.jpg',
+      followers: 9999,
+      following: 9999
+    },
+    type: 'China'
+  }, {
+    img: 'assets/images/7.jpg',
+    img_s: 'assets/images/r7.jpg',
+    name: 'Saras Chalet ',
+    address: 'Rāmgarh, India',
+    rate:  4,
+    weather: {
+      title: 'Showers',
+      icon: 'assets/images/Showers.png',
+      water: 24,
+      temperature: 26
+    },
+    social_info:{
+      title: 'Heavenly Blissful and Peace full',
+      img: 'assets/images/b7.jpg',
+      img_s: 'assets/images/rb7.jpg',
+      followers: 9999,
+      following: 9999
+    },
+    type: 'India'
+  }, {
+    img: 'assets/images/1.jpg',
+    img_s: 'assets/images/r1.jpg',
+    address: 'Jaisalmer, India',
+    rate:  3,
+    name: 'Garh Jaisal Haveli',
+    weather: {
+      title: 'Thunderstorm',
+      icon: 'assets/images/Thunderstorm.png',
+      water: 22,
+      temperature: 29
+    },
+    social_info:{
+      title: 'Amazing view',
+      img: 'assets/images/b1.jpg',
+      img_s: 'assets/images/rb1.jpg',
+      followers: 1000,
+      following: 99
+    },
+    type: 'India'
   }
 ];
 
 export const hotels$: Observable<IHotel[]> = of(hotels);
+export const types$: Observable<string[]> = hotels$
+  .pipe(
+    map(hotels => [...new Set(hotels.map(hotel => hotel.type))])
+  );

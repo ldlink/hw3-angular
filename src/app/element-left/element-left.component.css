@@ -10,3 +10,11 @@
   height: 190px;
   overflow: hidden;
 }
+
+.ele-strip-active{
+  color: #313144;
+}
+
+.activity-desc p {
+  line-height: 1em;
+}

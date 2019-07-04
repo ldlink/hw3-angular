@@ -9,10 +9,10 @@ import { HotelFilterPipe } from '../hotel-filter.pipe';
 })
 export class ElementLeftComponent implements OnInit {
 
-  @Input() public hotels: IHotel[];
+  @Input() private hotels: IHotel[];
   @Input() public types: string[];
 
-  @Input() private activeHotel: IHotel;
+  @Input() public activeHotel: IHotel;
   @Output() public activeHotelChange = new EventEmitter<IHotel>();
 
   public title = 'Righteous indignation & like';

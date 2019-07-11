@@ -69,7 +69,7 @@ export class HotelListService {
   }
 
   private getLoadList(){
-    return this.http.get<IHotel[]>(` http://localhost:3000/hotels`)
+    return this.http.get<IHotel[]>('hotels')
       .pipe(
         catchError((err) => {
           return of([]);

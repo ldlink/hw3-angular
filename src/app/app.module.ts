@@ -8,8 +8,9 @@ import { ElementAboutComponent } from './element-about/element-about.component';
 import { HotelFilterPipe } from './element-list/hotel-filter.pipe';
 import { ShowRatePipe } from './element-list/show-rate.pipe';
 import { HotelListService } from './services/hotel-list.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HotelComponent } from './element-list/hotel/hotel.component';
+import { InterceptorService } from './interceptor.service';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,12 @@ import { HotelComponent } from './element-list/hotel/hotel.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [HotelListService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+    HotelListService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

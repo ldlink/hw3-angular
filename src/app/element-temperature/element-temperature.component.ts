@@ -1,18 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { IHotel, IWeather } from '../mock';
+import { Component, Input } from '@angular/core';
+import { IWeather } from '../shared/interface';
 
 @Component({
   selector: 'app-element-temperature',
   templateUrl: './element-temperature.component.html',
   styleUrls: ['./element-temperature.component.css']
 })
-export class ElementTemperatureComponent implements OnInit {
+export class ElementTemperatureComponent {
 
   @Input() public activeWeather: IWeather;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

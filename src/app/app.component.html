@@ -1,13 +1,9 @@
 <h1>{{title}}</h1>
 <div class="element">
-  <app-element-left
-          [hotels]="hotels$ | async"
-          [(activeHotel)]="activeHotel"
-          [types]="types$ | async"
-          class="element-left"></app-element-left>
+  <app-element-list class="element-left"></app-element-list>
   <div class="element-right">
-    <app-element-temperature [activeWeather]="activeHotel?.weather"></app-element-temperature>
-    <app-element-about [activeSocial]="activeHotel?.social_info"></app-element-about>
+    <app-element-temperature [activeWeather]="hotelList.activeWeather"></app-element-temperature>
+    <app-element-about [activeSocial]="hotelList.activeSocial"></app-element-about>
   </div>
 </div>
 

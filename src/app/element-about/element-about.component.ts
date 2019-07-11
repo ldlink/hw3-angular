@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ISocial } from '../mock';
+import { ISocial } from '../shared/interface';
 
 @Component({
   selector: 'app-element-about',

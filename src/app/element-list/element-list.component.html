@@ -1,0 +1,29 @@
+<div class="element-bg-img">
+    <img src="{{hotelList.activeHotel?.img}}" alt="" class="img-responsive">
+</div>
+<div class="element-left-bottom">
+    <div class="ele-strip">
+        <ul>
+            <li *ngFor="let type of hotelList.types$ | async">
+                <a href="#" (click)="hotelList.onSearch(type)"
+                   [ngClass]="{'ele-strip-active':hotelList._activeType$.value === type}"
+                   >{{type}}</a>
+            </li>
+            <li><a href="#" title="Clear filter" (click)="hotelList.onSearch(null)">&times;</a></li>
+            <li class="anc-bor" title="Reload"><a href="#" (click)="hotelList.onReload()">&#8645;</a></li>
+        </ul>
+    </div>
+    <div class="village">
+        <h3>{{title}}</h3>
+        <span class="line"> </span>
+        <div class="activity_box">
+            <div class="scrollbar" id="style-2">
+                <div class="activity-row"
+                     *ngFor="let hotel of hotelList.showHotels$ | async "
+                     (click)="hotelList.setActive(hotel)">
+                  <app-hotel [hotel]="hotel"></app-hotel>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

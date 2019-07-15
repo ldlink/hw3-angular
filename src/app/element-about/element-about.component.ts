@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ISocial } from '../shared/interface';
 
 @Component({
@@ -6,14 +6,8 @@ import { ISocial } from '../shared/interface';
   templateUrl: './element-about.component.html',
   styleUrls: ['./element-about.component.css']
 })
-export class ElementAboutComponent implements OnInit {
+export class ElementAboutComponent {
 
   @Input() activeSocial: ISocial;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 
 }

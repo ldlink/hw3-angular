@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { HotelListService } from '../services/hotel-list.service';
 
 @Component({
@@ -6,15 +6,12 @@ import { HotelListService } from '../services/hotel-list.service';
   templateUrl: './element-list.component.html',
   styleUrls: ['./element-list.component.css']
 })
-export class ElementListComponent implements OnInit {
+export class ElementListComponent {
 
   public title = 'Righteous indignation & like';
 
   constructor(
     public hotelList: HotelListService
   ) { }
-
-  ngOnInit() {
-  }
 
 }
